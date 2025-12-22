@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="scroll-smooth no-scrollbar">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -21,6 +21,16 @@
         },
       };
     </script>
+    <style>
+      .no-scrollbar {
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* IE / Edge */
+      }
+
+      .no-scrollbar::-webkit-scrollbar {
+        display: none; /* Chrome, Safari */
+      }
+    </style>
 
     <title>Blog</title>
     <script type="module" crossorigin src="/portfolio/assets/blog-B0ayeEFf.js"></script>
@@ -34,7 +44,7 @@
     >
       <div class="max-w-7xl mx-auto px-6 py-2 flex justify-end items-center">
         <ul class="flex gap-8 text-sm font-medium">
-          <li><a href="/portfolio" class="hover:text-[#BF40BF]">Home</a></li>
+          <li><a href="/portfolio/" class="hover:text-[#BF40BF]">Home</a></li>
           <li>
             <a href="/portfolio/#about" class="hover:text-[#BF40BF]">About</a>
           </li>
@@ -65,7 +75,7 @@
         <h1 class="text-5xl md:text-6xl font-bold mb-6">
           Notes from
           <span
-            class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-violet-400 to-pink-400"
+            class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-violet-400 to-indigo-400"
           >
             silent nights
           </span>
@@ -78,7 +88,7 @@
     </section>
 
     <!--Blog section-->
-    <section class="relative w-full bg-black py-24 px-6">
+    <section class="relative w-full bg-black py-12 px-6">
       <div class="max-w-6xl mx-auto mb-16 text-center">
         <h2 class="text-4xl font-bold text-indigo-400">Cosmic Logs</h2>
         <p class="mt-4 text-gray-400">
@@ -87,37 +97,87 @@
       </div>
 
       <div class="max-w-6xl mx-auto grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-        <!-- Card -->
+        <!--LOG 1-->
         <article
           class="article-card cursor-pointer rounded-xl border border-white/10 bg-white/5 p-6 backdrop-blur hover:border-indigo-400/40 hover:bg-white/10 transition"
-          data-title="Drifting Beyond Orbit"
+          data-title="The Echoes of Our Existence"
           data-log="Log 01"
-          data-content="
-        <p>Exploration begins the moment certainty collapses.</p>
-        <p class='mt-4'>This article reflects on curiosity, isolation, and the strange comfort of not knowing where you are headed.</p>
-        <p class='mt-4'>Space does not reward certainty — it rewards motion.</p>
-      "
+          data-source="#article-echoesarticle"
         >
           <span class="text-xs uppercase tracking-widest text-indigo-400">
             Log 01
           </span>
           <h3 class="mt-3 text-xl font-semibold text-white">
-            Drifting Beyond Orbit
+            The Echoes of Our Existence
           </h3>
           <p class="mt-3 text-sm text-gray-400">
-            A reflection on curiosity and isolation.
+            An article on our origin, location and meaning in the universe.
+          </p>
+        </article>
+
+        <!--LOG 2-->
+        <article
+          class="article-card cursor-pointer rounded-xl border border-white/10 bg-white/5 p-6 backdrop-blur hover:border-indigo-400/40 hover:bg-white/10 transition"
+          data-title="The Palm Pilot"
+          data-log="Log 02"
+          data-source="#article-palmpilot"
+        >
+          <span class="text-xs uppercase tracking-widest text-indigo-400">
+            Log 02
+          </span>
+          <h3 class="mt-3 text-xl font-semibold text-white">The Palm Pilot</h3>
+          <p class="mt-3 text-sm text-gray-400">
+            A wearable device for assisting disabled people in their daily
+            tasks.
+          </p>
+        </article>
+
+        <!--LOG 3-->
+        <article
+          class="article-card cursor-pointer rounded-xl border border-white/10 bg-white/5 p-6 backdrop-blur hover:border-indigo-400/40 hover:bg-white/10 transition"
+          data-title="Analog Black Holes and Hawking Radiation"
+          data-log="Log 03"
+          data-source="#article-analogblackholes"
+        >
+          <span class="text-xs uppercase tracking-widest text-indigo-400">
+            Log 03
+          </span>
+          <h3 class="mt-3 text-xl font-semibold text-white">
+            Analog Black Holes and Hawking Radiation
+          </h3>
+          <p class="mt-3 text-sm text-gray-400">
+            My research on the function, properties and uses of some analog
+            black hole models.
+          </p>
+        </article>
+
+        <!--LOG 4-->
+        <article
+          class="article-card cursor-pointer rounded-xl border border-white/10 bg-white/5 p-6 backdrop-blur hover:border-indigo-400/40 hover:bg-white/10 transition"
+          data-title="I think therefore I am"
+          data-log="Log 02"
+          data-source="#article-article4"
+        >
+          <span class="text-xs uppercase tracking-widest text-indigo-400">
+            Log 04
+          </span>
+          <h3 class="mt-3 text-xl font-semibold text-white">
+            I think therefore I am
+          </h3>
+          <p class="mt-3 text-sm text-gray-400">
+            A man who always thinks had nothing to think except for thoughts.
           </p>
         </article>
       </div>
     </section>
 
-    <!-- Article Modal -->
+    <!--  Modal-->
     <div
       id="articleModal"
-      class="fixed inset-0 z-50 hidden items-center justify-center bg-black/80 backdrop-blur-sm"
+      class="fixed inset-0 z-50 hidden items-center justify-center bg-black/80 backdrop-blur-sm overflow-y-auto no-scrollbar"
     >
       <div
-        class="relative max-w-3xl w-full mx-6 rounded-2xl border border-white/10 bg-slate-950 p-8 text-white"
+        class="relative max-w-3xl w-full mx-6 my-12 max-h-[90vh] overflow-y-auto no-scrollbar rounded-2xl border border-white/10 bg-slate-950 p-8 text-white"
       >
         <button
           id="closeModal"
@@ -140,6 +200,8 @@
       </div>
     </div>
 
+
+    <!--Modal script-->
     <script>
       const modal = document.getElementById("articleModal");
       const modalTitle = document.getElementById("modalTitle");
@@ -149,9 +211,12 @@
 
       document.querySelectorAll(".article-card").forEach((card) => {
         card.addEventListener("click", () => {
+          const sourceSelector = card.dataset.source;
+          const sourceContent = document.querySelector(sourceSelector);
+
           modalTitle.textContent = card.dataset.title;
           modalLog.textContent = card.dataset.log;
-          modalContent.innerHTML = card.dataset.content;
+          modalContent.innerHTML = sourceContent.innerHTML;
 
           modal.classList.remove("hidden");
           modal.classList.add("flex");
@@ -175,5 +240,494 @@
         if (e.key === "Escape") hideModal();
       });
     </script>
+
+    <!--echoes article-->
+    <div id="article-echoesarticle" class="hidden">
+      <p class="mt-6 font-semibold text-indigo-400">By Shuvam Kandel</p>
+      <img
+        src="/portfolio/photo3.jpg"
+        class="h-auto w-128 rounded-xl my-6 border border-white/10 mx-auto"
+      />
+      <p>
+        The cosmos is the entirety of existence—everything that is, was, and
+        ever will be. Its tales are reflections of our own story. It is a saga
+        of how wandering bands of hunters and gatherers reached for the stars
+        and beyond, a single narrative shaped by many heroes. The scale and age
+        of the <strong class="text-indigo-400">Cosmos</strong> defy ordinary
+        human comprehension, placing our small, fragile home, Earth, amidst its
+        boundless expanse.
+      </p>
+
+      <p>
+        Throughout human history, humanity has evolved to imagine, wonder, and,
+        most importantly, recognize that understanding is key to survival. The
+        cosmos is rich beyond measure, and our existence within it is akin to a
+        mote of dust drifting through the morning sky.
+      </p>
+
+      <p>
+        Our most fleeting reflections on the cosmos evoke a deep, almost
+        visceral response—a shiver along the spine, a catch in the voice, a
+        sensation like a distant memory of falling from a great height. Yet, as
+        we explore these mysteries, we are drawn ever closer to the ultimate
+        enigma.
+      </p>
+
+      <p>
+        Drawing from the insights of astronomer
+        <strong class="text-amber-400">Carl Sagan</strong>, the preceding piece
+        defines our existence within the cosmos. From the humblest of
+        beginnings, humanity has gazed upward, contemplating the boundless
+        possibilities offered by the infinite sky. We have long questioned our
+        origin and purpose.
+      </p>
+
+      <p>
+        Historically, people believed Earth was the centre of the universe.
+        However, through centuries of discovery and the power of imagination, we
+        have come to realise that Earth is merely a speck in the vast cosmos.
+      </p>
+
+      <p>
+        To grasp this scale, consider a grain of sand: on the cosmic scale, that
+        tiny area covered by the sand contains nearly
+        <strong class="text-indigo-400">10,000 galaxies</strong> and over a
+        <strong class="text-indigo-400">quadrillion stars</strong>. There are
+        more planets in the universe than there are grains of sand on Earth.
+      </p>
+
+      <p>
+        Less than a century ago, we were unaware of any universe beyond our own
+        <strong class="text-indigo-400">Milky Way Galaxy</strong>. Our
+        perspective and understanding of the universe have expanded enormously
+        since then.
+      </p>
+
+      <p>
+        Amid the vastness of the universe, where does our tiny blue planet fit
+        in? The first line of our address begins here, on
+        <strong class="text-indigo-400">Earth</strong>. Everything and everyone
+        we know has drawn breath on this planet, within a time frame that seems
+        insignificant compared to the age of the universe.
+      </p>
+
+      <p>
+        Leaving Earth, our nearest celestial neighbour, the
+        <strong class="text-gray-300">Moon</strong>, has no sky, no ocean, and
+        no life—scarred by the impacts of cosmic events. Our beacon of light at
+        night, the <strong class="text-white-400">Sun</strong>, holds all the
+        planets in our
+        <strong class="text-indigo-400">Solar System</strong> with its
+        gravitational pull, from <strong>Mercury</strong> to the outermost
+        planets, <strong>Uranus</strong> and <strong>Neptune</strong>.
+      </p>
+
+      <p>
+        Beyond these planets lie thousands of frozen worlds, as well as billions
+        of comets in the <strong class="text-indigo-400">Oort Cloud</strong>,
+        remnants from the formation of the solar system. This enormous cloud of
+        comets encloses our solar system, marking the second line of our cosmic
+        address.
+      </p>
+
+      <p>
+        Next, we locate our solar system within the
+        <strong class="text-indigo-400">Milky Way Galaxy</strong>, about
+        <strong>thirty thousand light-years</strong> from its centre. The galaxy
+        next door is the great spiralling
+        <strong class="text-indigo-400">Andromeda Galaxy</strong>.
+      </p>
+
+      <p>
+        Our two giant galaxies, along with a few smaller ones, form the
+        <strong class="text-indigo-400">Local Group</strong>, our next line of
+        address. Our galaxy is just one of thousands in the
+        <strong class="text-indigo-400">Virgo Supercluster</strong>, each
+        containing billions of stars and countless worlds.
+      </p>
+
+      <p>
+        Yet, the Virgo Supercluster is merely a small part of the universe,
+        leading us to the final line of our cosmic address: the
+        <strong class="text-indigo-400">Observable Universe</strong>.
+      </p>
+
+      <p>
+        In considering our place in the cosmos, we encounter a profound
+        philosophical and scientific debate: the tension between
+        <strong>randomness</strong> and <strong>determinism</strong>.
+      </p>
+
+      <p>
+        <strong>Determinism</strong> posits that occurrences in nature are
+        determined by preceding events or natural laws, suggesting that
+        everything leading up to this point has happened for a reason and that
+        everything has a purpose and order.
+      </p>
+
+      <p>
+        In contrast, the perspective of <strong>randomness</strong> argues that
+        events are mere coincidences. According to this view, our existence is
+        the result of a complex but inevitable series of chemical accidents and
+        biological mutations, with no grand meaning or purpose.
+      </p>
+
+      <p>
+        This ongoing debate not only challenges our understanding of existence
+        but also influences how we interpret our place within the vast universe.
+      </p>
+
+      <p>
+        From a cosmic perspective, most human concerns may seem insignificant.
+        However, we must also remember that a living cell is as complex and
+        beautiful as the realms of galaxies and stars.
+      </p>
+
+      <p>
+        Life is perhaps the greatest gift the cosmos has bestowed upon us. Each
+        of us is shaped by our experiences, and the essence of life lies in the
+        power of our thoughts and the value of our memories.
+      </p>
+
+      <p>
+        Our perspectives on freedom, pleasure, prosperity, and duty define our
+        character. Ultimately, it is not from the vastness of space that we must
+        seek meaning, but from the governance of our own thoughts.
+      </p>
+    </div>
+
+    <!--Palm Pilot Article-->
+    <div id="article-palmpilot" class="hidden">
+      <p class="mt-6 font-semibold text-indigo-400">By Shuvam Kandel</p>
+      <img
+        src="/portfolio/photo1.png"
+        class="max-w-xs rounded-xl my-6 border border-white/10 mx-auto"
+      />
+      <p class="font-semibold text-indigo-400">Introduction</p>
+
+      <p>
+        Every day, as I return home from school on public transport, I see a
+        blind man navigating his way home without assistance. With no tactile
+        pavements or traffic signals, every step is a shot in the dark—yet he
+        never falters. How many times must he have stumbled to memorize every
+        bump in the road?
+      </p>
+
+      <p>
+        The <strong class="text-indigo-400">Palm Pilot</strong> is an all-in-one
+        tool intended to change the lives of <strong>disabled people</strong>.
+        Featuring many capabilities that are constantly improving, it aims to
+        become an everyday-use item for many people in our society.
+      </p>
+
+      <p class="mt-6 font-semibold text-indigo-400">Objectives</p>
+
+      <p>To help <strong>disabled people</strong> in their daily lives.</p>
+
+      <p>To monitor <strong>patients</strong> in a hospital environment.</p>
+
+      <p>
+        To allow easy supervision of patients by <strong>guardians</strong>.
+      </p>
+
+      <p>To minimise <strong>risk</strong> for disabled people.</p>
+
+      <p class="mt-6 font-semibold text-indigo-400">
+        Method, Observation and Application
+      </p>
+
+      <p>
+        The <strong class="text-indigo-400">Palm Pilot</strong> is a wearable
+        glove designed to assist disabled individuals in their daily lives. Its
+        features include monitoring <strong>location</strong>, continuous
+        monitoring of <strong>hand movements</strong> and
+        <strong>heart rate</strong> updated periodically to a
+        <strong>website</strong>, the ability to control
+        <strong>household appliances</strong> through
+        <strong>hand gestures</strong>, and the ability to control a
+        <strong>wheelchair</strong>.
+      </p>
+
+      <p>
+        It can also be used in hospital wards, allowing nurses to monitor
+        multiple patients via a <strong>web interface</strong>. The glove
+        provides basic entertainment by enabling wireless control of games on a
+        computer screen or an external display. It can also control a
+        <strong>laptop cursor</strong> and perform actions such as opening a
+        <strong>YouTube</strong> video in a browser.
+      </p>
+
+      <p>
+        <strong>Motion</strong> and <strong>touch sensors</strong> are used to
+        capture hand movement. <strong>Radio communication</strong> is used for
+        some features, while <strong>internet connectivity</strong> is used for
+        others. The data collected is updated to a <strong>database</strong> and
+        used in real time by multiple programs.
+      </p>
+
+      <p class="mt-6 font-semibold text-indigo-400">Technologies Used</p>
+
+      <p>
+        <strong class="text-indigo-400">Arduino</strong> with
+        <strong class="text-indigo-400">ESP32</strong> using C++ and C#.
+      </p>
+
+      <p>
+        <strong class="text-indigo-400">Database</strong> for storing real-time
+        hand motion data.
+      </p>
+
+      <p>
+        <strong class="text-indigo-400">Python</strong> for functionalities
+        including games and cursor movement.
+      </p>
+
+      <p>
+        <strong class="text-indigo-400">JavaScript</strong> with
+        <strong class="text-indigo-400">React</strong> for the website.
+      </p>
+      <img
+        src="/portfolio/photo2.png"
+        class="max-w-xs rounded-xl my-6 border border-white/10 mx-auto"
+      />
+      <p class="mt-6 font-semibold text-indigo-400">Conclusion</p>
+
+      <p>
+        The <strong class="text-indigo-400">Palm Pilot</strong> is a versatile
+        project with multiple real-world use cases. It is intended to develop
+        into a future product after further stages of refinement.
+      </p>
+
+      <p>
+        Designing the Palm Pilot was not only an exercise in engineering, but
+        also an effort to address real challenges and uphold
+        <strong>social responsibility</strong>.
+      </p>
+    </div>
+
+    <!--Analog black holes article-->
+    <div id="article-analogblackholes" class="hidden">
+      <p class="mt-6 font-semibold text-indigo-400">By Shuvam Kandel</p>
+
+      <img
+        src="/portfolio/photo3.jpg"
+        class="w-128 rounded-xl my-6 border border-white/10 mx-auto"
+      />
+      <p><em>“Intelligence is the ability to adapt to change.”</em></p>
+
+      <p>
+        <strong class="text-indigo-400">Stephen Hawking</strong> was 21 years
+        old when he became physically restricted, but his brilliant mind knew no
+        boundaries. The story about
+        <strong class="text-white-400">black holes</strong> formed in
+        laboratories with science seemingly unimaginable begins with the
+        brilliancy of Stephen Hawking and his breakthrough. The 1974 paper by
+        Hawking titled <em>“Black Hole Explosions?”</em> and a follow-up paper
+        in 1975 attempted a union of
+        <strong class="text-indigo-400">quantum mechanics</strong> and
+        <strong class="text-indigo-400">general relativity</strong> to show that
+        black holes should, in theory, leak their mass in the form of what we
+        now know as <strong class="text-indigo-400">Hawking radiation</strong>.
+      </p>
+
+      <p>
+        But first, what is a
+        <strong class="text-white-400">black hole</strong>? A black hole is an
+        area of such immense gravity that nothing can escape from it, not even
+        light. The <em>event horizon</em> of the black hole is the point beyond
+        which the velocity required to escape the black hole exceeds the speed
+        of light. Before diving into the world of leaking black holes, there is
+        a need to first understand some principles of
+        <strong class="text-indigo-400">quantum mechanics</strong>. This is
+        where we let go of the limitations of the physical world we know and
+        explore what can't be seen.
+      </p>
+
+      <p>
+        <strong class="text-indigo-400">Quantum physics</strong> is the science
+        of the unseen world. It studies matter and energy at the most
+        fundamental level. To go deeper into the quantum world, imagine empty
+        space in the universe. Doesn’t really seem like a step ahead, does it?
+        In the quantum world, space isn’t empty. It is filled with fields that
+        vibrate at different frequencies, much like the strings on a guitar.
+        These frequencies can be positive or negative. When a field is in a
+        vacuum state, there’s a balance between the positive and negative
+        frequencies, which can crudely be thought of as a balance of virtual
+        matter and antimatter particles. These various positive and negative
+        frequency modes virtually annihilate or cancel out so that no real
+        particles exist. Crudely, this can be known as
+        <strong class="text-white-400">quantum field theory</strong>.
+      </p>
+
+      <p>
+        Hawking Radiation is more than just radiation from a black hole. To
+        understand this, imagine a trajectory of a quantum field in vacuum
+        extending from the infinite past to the infinite future. A giant star
+        collapses in the trajectory and forms a black hole. Just as the black
+        hole is created, it wreaks havoc on the quantum field. A field that was
+        in a perfectly vacuum state before the creation of the black hole is now
+        disturbed, causing a disturbance to the fundamental vibrational mode of
+        the positive and negative frequencies that define the vacuum. By the
+        time the trajectory finds its way back out into flat space, it seems
+        like the black hole is leaking particles. Radiation is seen emerging
+        from the black hole to distant observers. Since energy can neither be
+        created nor destroyed, the particle cannot just exist out of thin air.
+        So, the energy required for the particle to exist is drawn from the
+        disruptor itself, the black hole. Crudely, this is Hawking radiation as
+        defined in
+        <strong class="text-indigo-400">Stephen Hawking’s mathematics</strong>.
+      </p>
+
+      <p>
+        <em
+          >"We know nothing of what will happen in the future, but by the
+          analogy of experience."</em
+        >
+        Analog black holes are made with analogies of real black holes, hence
+        the name ‘analog.’ They are physical systems that aren't actually black
+        holes but behave in similar ways. The story of analog black holes begins
+        with physicist <strong class="text-indigo-400">Bill Unruh</strong>, who
+        was the first to develop an analogy for laboratory-created black holes
+        in 1972, starting with a pure thought experiment. Unruh imagined a river
+        with a fish constantly producing sound. In still water, the sound that
+        the fish produces is heard in all directions. He pictured that the river
+        leads to a waterfall, and the speed of the water increases to the speed
+        of sound as it approaches the waterfall. As the fish is pushed down the
+        river stream, the sound that it produces will get lesser and lesser
+        until, at a point, the sound won’t be heard. This point will be when the
+        speed of the water in the river is equal to the speed of sound, as the
+        water will push all the sound waves downstream. This is the
+        <em>event horizon</em> of the analog black hole imagination. As the fish
+        gets pushed down the waterfall, it can be compared to getting deeper
+        into the black hole. Like the analogy devised by Unruh, other analogies
+        have been developed but with the same basic principle. Hawking radiation
+        is a quantum mechanical effect, so the model discussed forth will deal
+        with a quantum-level analogy.
+        <strong class="text-indigo-400">Jeff Steinhauer</strong> and his team
+        have been able to achieve a correlation between Hawking radiation
+        particles and partner particles inside the black hole, along with
+        entanglement of their thermal energies.
+      </p>
+
+      <img
+        src="/portfolio/hawkingradiationparticle.png"
+        class="max-w-s rounded-xl my-6 border border-white/10 mx-auto"
+      />
+      <p>
+        Steinhauer’s analogy uses about 8,000 atoms of
+        <strong class="text-indigo-400">rubidium</strong> in a
+        <strong class="text-white-400">Bose-Einstein condensate</strong>
+        confined in a narrow tube created by a laser beam. This is the medium,
+        like the water in Unruh’s analogy. Bose-Einstein condensate is a state
+        of matter achieved when atoms are cooled to near absolute zero
+        temperature (zero Kelvin). Many lasers are used to create a flow in the
+        condensate, which flows from left to right in the narrow tube. This
+        <em>sonic horizon</em> is the point at which the flow of the condensate
+        changes from subsonic to supersonic speeds. It is flowing slower than
+        the speed of sound before it reaches the sonic horizon, whereas it is
+        flowing faster than the speed of sound after. The flow of the condensate
+        causes phonons to be produced. The phonon is a sound wave created by the
+        vibration of the atomic lattice, here the atomic lattice of the rubidium
+        atoms. Phonon sound waves trying to travel from right to left in the
+        supersonic region cannot go forward because the flow is faster than the
+        speed of sound. It is trapped inside the sonic black hole. Waves in the
+        subsonic region can go forward because the flow of the condensate is
+        slower than the speed of sound. This implies that particles before the
+        sonic horizon or in a real black hole before the event horizon can
+        escape. The wave travelling against the flow of the condensate in the
+        supersonic region experiences a big change in frequency due to the
+        Doppler effect, so big that its frequency becomes negative. The energy
+        it carries also becomes negative since energy is directly proportional
+        to frequency. Whereas in the subsonic region with the slower flow of the
+        condensate, the energy is positive. There can exist pairs, one in the
+        subsonic region and one in the supersonic region, with zero total
+        energy. The part of the pair that escapes the sonic horizon is Hawking
+        radiation in Steinhauer’s analog black hole.
+      </p>
+      <img
+        src="/portfolio/x,xrelation.png"
+        class="max-w-s rounded-xl my-6 border border-white/10 mx-auto"
+      />
+      <p>
+        A
+        <strong class="text-indigo-400">correlation function</strong> describes
+        how microscopic variables, such as spin and density, at different
+        positions are related. The team considered the correlation between two
+        points, x and x’, along the black hole. Point x is outside the black
+        hole, and point x’ is inside the black hole. The outlined quadrant has x
+        values that are negative and x’ values that are positive. The lines are
+        points that mark equal times from the horizon. When a particle moves
+        some distance away and some distance toward, if they move equal times,
+        there are correlations at those points. Repeating the experiment
+        thousands of times results in data regarding the nature of Hawking
+        radiation. A deeper band of points means that there was more
+        correlation, which means there was more Hawking radiation to cause these
+        correlations. The depth of these bands can be ascribed to a
+        <strong class="text-indigo-400">temperature</strong>. From this, we can
+        extract their respective temperatures from the quantity of Hawking
+        radiation. The temperature can also be extracted from the width of the
+        band. Narrower width means shorter wavelength and higher temperature.
+        The results obtained from both methods roughly coincide with each other,
+        revealing the thermal nature of Hawking radiation and proving Hawking’s
+        calculations. The results are in agreement with numerical simulations
+        and predictions found in the literature, providing both literary and
+        numerical proof. It is one of the very few systems to confirm Hawking’s
+        calculations quantitatively.
+      </p>
+
+      <p>
+        Researching black holes and Hawking radiation fulfils a greater purpose
+        than just understanding these mysterious astrophysical entities. To
+        grasp what Hawking radiation truly is,
+        <strong class="text-indigo-400">Stephen Hawking</strong> needed an
+        amalgamation of quantum mechanics and general relativity—a theory of
+        everything. But a theory of everything did not exist then and does not
+        exist now. Hawking provided a clever workaround to construct a difficult
+        marriage between quantum mechanics and general relativity. His theory
+        shows how such indifferent entities in physics could work together.
+        Another reason for studying Hawking radiation is
+        <strong class="text-indigo-400">quantum entanglement</strong>, the study
+        of particles where knowledge about one particle immediately reveals
+        knowledge about another particle, or the interrelation between particles
+        that enter and escape a black hole. Analog black holes aim to find the
+        true nature of Hawking radiation to reveal the relation and nature of
+        particles within an actual black hole. Revealing the true nature of
+        Hawking radiation would help devise a
+        <strong class="text-indigo-400">theory of everything</strong>.
+      </p>
+
+      <p class="mt-4 font-semibold text-indigo-400">Citations</p>
+      <p>
+        Hawking, S. W. (1974). Black Hole Explosions? Nature, 248(5443), 30–31.
+        https://doi.org/10.1038/248030a0
+      </p>
+      <p>
+        Unruh, W. G. (1981). Experimental Black-Hole Evaporation? Physical
+        Review Letters, 46(21), 1351–1353. doi:10.1103/physrevlett.46.1351
+      </p>
+      <p>
+        Lahav, O., Itah, A., Blumkin, A., Gordon, C., Rinott, S., Zayats, A., &
+        Steinhauer, J. (2010). Realisation of a Sonic Black Hole Analog in a
+        Bose-Einstein Condensate. Physical Review Letters, 105(24).
+        doi:10.1103/physrevlett.105.240401
+      </p>
+      <p>
+        Steinhauer, J. (2016). Observation of Quantum Hawking Radiation and Its
+        Entanglement in an Analogue Black Hole. Nature Physics, 12(10), 959–965.
+        doi:10.1038/nphys3863
+      </p>
+    </div>
+
+    <!--article4-->
+    <div id="article-article4" class="hidden">
+      <p class="mt-6 font-semibold text-indigo-400">By Shuvam Kandel</p>
+
+      <img
+        src="/portfolio/photo3.jpg"
+        class="w-128 rounded-xl my-6 border border-white/10 mx-auto"
+      />
+
+      <p>Shalom.</p>
+    </div>
   </body>
 </html>
