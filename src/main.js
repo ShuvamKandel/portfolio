@@ -75,7 +75,7 @@ const loader = new GLTFLoader();
 let model = null;
 
 loader.load(
-  "/spaceman.glb",
+  `${import.meta.env.BASE_URL}spaceman.glb`,
   (gltf) => {
     model = gltf.scene;
 
