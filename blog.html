@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              background: "#000000",
+              card: "#121826",
+              primary: "#6366f1",
+              secondary: "#22d3ee",
+              accent: "#a78bfa",
+              paper: "#f8fafc",
+            },
+          },
+        },
+      };
+    </script>
+
+    <title>Blog</title>
+  </head>
+
+  <body class="bg-background text-white overflow-x-hidden">
+    <!--nav-->
+    <nav
+      class="fixed top-0 left-0 w-full z-50 backdrop-blur-md border-b border-white/10 text-[#2F4DA3]"
+    >
+      <div class="max-w-7xl mx-auto px-6 py-2 flex justify-end items-center">
+        <ul class="flex gap-8 text-sm font-medium">
+          <li><a href="/" class="hover:text-[#BF40BF]">Home</a></li>
+          <li><a href="/#about" class="hover:text-[#BF40BF]">About</a></li>
+          <li><a href="/blog.html" class="text-[#BF40BF]">Blog</a></li>
+          <li>
+            <a href="/projects.html" class="hover:text-[#BF40BF]">Projects</a>
+          </li>
+          <li><a href="/#contact" class="hover:text-[#BF40BF]">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+    <!--hero-->
+    <section class="relative pt-40 pb-32 overflow-hidden">
+      <div
+        id="starfield"
+        class="absolute inset-0 -z-10 pointer-events-none"
+      ></div>
+
+      <div class="max-w-5xl mx-auto px-6 text-center relative z-10">
+        <h1 class="text-5xl md:text-6xl font-bold mb-6">
+          Notes from
+          <span
+            class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-violet-400 to-pink-400"
+          >
+            silent nights
+          </span>
+        </h1>
+
+        <p class="text-slate-400 max-w-2xl mx-auto text-lg italic">
+          A minimal collection of my thoughts, a modern day hypomnemata.
+        </p>
+      </div>
+    </section>
+
+    <!--Blog section-->
+    <section class="relative w-full bg-black py-24 px-6">
+      <div class="max-w-6xl mx-auto mb-16 text-center">
+        <h2 class="text-4xl font-bold text-indigo-400">Cosmic Logs</h2>
+        <p class="mt-4 text-gray-400">
+          Thoughts drifting through space and time.
+        </p>
+      </div>
+
+      <div class="max-w-6xl mx-auto grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <!-- Card -->
+        <article
+          class="article-card cursor-pointer rounded-xl border border-white/10 bg-white/5 p-6 backdrop-blur hover:border-indigo-400/40 hover:bg-white/10 transition"
+          data-title="Drifting Beyond Orbit"
+          data-log="Log 01"
+          data-content="
+        <p>Exploration begins the moment certainty collapses.</p>
+        <p class='mt-4'>This article reflects on curiosity, isolation, and the strange comfort of not knowing where you are headed.</p>
+        <p class='mt-4'>Space does not reward certainty — it rewards motion.</p>
+      "
+        >
+          <span class="text-xs uppercase tracking-widest text-indigo-400">
+            Log 01
+          </span>
+          <h3 class="mt-3 text-xl font-semibold text-white">
+            Drifting Beyond Orbit
+          </h3>
+          <p class="mt-3 text-sm text-gray-400">
+            A reflection on curiosity and isolation.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Article Modal -->
+    <div
+      id="articleModal"
+      class="fixed inset-0 z-50 hidden items-center justify-center bg-black/80 backdrop-blur-sm"
+    >
+      <div
+        class="relative max-w-3xl w-full mx-6 rounded-2xl border border-white/10 bg-slate-950 p-8 text-white"
+      >
+        <button
+          id="closeModal"
+          class="absolute top-4 right-4 text-gray-400 hover:text-white text-xl"
+        >
+          ✕
+        </button>
+
+        <span
+          id="modalLog"
+          class="text-xs uppercase tracking-widest text-indigo-400"
+        ></span>
+
+        <h2 id="modalTitle" class="mt-2 text-3xl font-bold"></h2>
+
+        <div
+          id="modalContent"
+          class="mt-6 text-gray-300 leading-relaxed space-y-4"
+        ></div>
+      </div>
+    </div>
+
+    <script type="module" src="/src/blog-stars.js"></script>
+    <script>
+      const modal = document.getElementById("articleModal");
+      const modalTitle = document.getElementById("modalTitle");
+      const modalLog = document.getElementById("modalLog");
+      const modalContent = document.getElementById("modalContent");
+      const closeModal = document.getElementById("closeModal");
+
+      document.querySelectorAll(".article-card").forEach((card) => {
+        card.addEventListener("click", () => {
+          modalTitle.textContent = card.dataset.title;
+          modalLog.textContent = card.dataset.log;
+          modalContent.innerHTML = card.dataset.content;
+
+          modal.classList.remove("hidden");
+          modal.classList.add("flex");
+          document.body.classList.add("overflow-hidden");
+        });
+      });
+
+      function hideModal() {
+        modal.classList.add("hidden");
+        modal.classList.remove("flex");
+        document.body.classList.remove("overflow-hidden");
+      }
+
+      closeModal.addEventListener("click", hideModal);
+
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal) hideModal();
+      });
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") hideModal();
+      });
+    </script>
+  </body>
+</html>
