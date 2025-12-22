@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!--tailwindconfig-->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              background: "#000000",
+              card: "#121826",
+              primary: "#6366f1",
+              secondary: "#22d3ee",
+              accent: "#a78bfa",
+            },
+            keyframes: {
+              "pulse-glow": {
+                "0%, 100%": { opacity: "0.6" },
+                "50%": { opacity: "1" },
+              },
+            },
+            animation: {
+              "pulse-glow": "pulse-glow 6s ease-in-out infinite",
+            },
+          },
+        },
+      };
+    </script>
+    <title>Portfolio</title>
+    <!--styles-->
+    <style>
+      @keyframes bounce-slow {
+        0%,
+        100% {
+          transform: translateY(0px) rotate(0deg);
+        }
+        50% {
+          transform: translateY(-10px) rotate(5deg);
+        }
+      }
+
+      @keyframes blink {
+        0%,
+        90%,
+        100% {
+          transform: scaleY(1);
+        }
+        95% {
+          transform: scaleY(0.1);
+        }
+      }
+
+      @keyframes tail-wag {
+        0%,
+        100% {
+          d: path("M160,150 Q180,120 160,90");
+        }
+        50% {
+          d: path("M160,150 Q190,120 170,90");
+        }
+      }
+
+      .animate-bounce-slow {
+        animation: bounce-slow 4s ease-in-out infinite;
+      }
+
+      .animate-blink {
+        animation: blink 4s infinite;
+        transform-origin: center;
+      }
+
+      .animate-tail {
+        animation: tail-wag 2s ease-in-out infinite;
+      }
+      @keyframes marquee {
+        0% {
+          transform: translateX(0%);
+        }
+        100% {
+          transform: translateX(-100%);
+        }
+      }
+
+      .animate-marquee {
+        animation: marquee 15s linear infinite;
+      }
+
+      .animate-marquee2 {
+        animation: marquee 15s linear infinite;
+        left: 100%;
+      }
+
+      /* Pause animation on hover so people can read the stack */
+      .group:hover .animate-marquee,
+      .group:hover .animate-marquee2 {
+        animation-play-state: paused;
+      }
+      @keyframes loop-scroll {
+        from {
+          transform: translateX(0);
+        }
+        to {
+          transform: translateX(-100%);
+        }
+      }
+
+      .animate-loop-scroll {
+        display: flex; /* Ensures the tracks stay horizontal */
+        animation: loop-scroll 22s linear infinite;
+      }
+
+      /* Optional: Pause on hover so people can actually look at a logo */
+      .group:hover .animate-loop-scroll {
+        animation-play-state: paused;
+      }
+
+      /* Pause when user is looking closely */
+      .group:hover .animate-loop-scroll {
+        animation-play-state: paused;
+      }
+    </style>
+    <script type="module" crossorigin src="/portfolio/assets/index-Tk44Dy1D.js"></script>
+  </head>
+
+  <body class="bg-background text-white overflow-x-hidden">
+    <!-- Navbar -->
+    <nav
+      class="fixed top-0 left-0 w-full z-50 backdrop-blur-md border-b border-white/10 text-[#DECECA]"
+    >
+      <div class="max-w-7xl mx-auto px-6 py-2 flex justify-end items-center">
+        <ul class="flex gap-6 text-sm font-medium">
+          <li><a href="/" class="hover:text-[#BF40BF] transition">Home</a></li>
+          <li>
+            <a href="#about" class="hover:text-[#BF40BF] transition">About</a>
+          </li>
+          <li>
+            <a href="/blog.html" class="hover:text-[#BF40BF] transition"
+              >Blog</a
+            >
+          </li>
+          <li>
+            <a href="/projects.html" class="hover:text-[#BF40BF] transition"
+              >Projects</a
+            >
+          </li>
+          <li>
+            <a href="#contact" class="hover:text-[#BF40BF] transition"
+              >Contact</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex flex-col overflow-hidden">
+      <!-- Background gradient / glows -->
+      <div
+        class="absolute inset-0 bg-gradient-to-br from-background via-card to-background"
+      ></div>
+      <div
+        class="absolute top-20 left-10 w-72 h-72 bg-primary/20 rounded-full blur-3xl animate-pulse-glow"
+      ></div>
+      <div
+        class="absolute bottom-20 right-20 w-96 h-96 bg-secondary/20 rounded-full blur-3xl animate-pulse-glow"
+        style="animation-delay: 1s"
+      ></div>
+      <div
+        class="absolute top-1/2 left-1/3 w-64 h-64 bg-accent/15 rounded-full blur-3xl animate-pulse-glow"
+        style="animation-delay: 0.5s"
+      ></div>
+
+      <!-- Floating Card -->
+
+      <!-- 3D Canvas -->
+      <div id="starfield" class="absolute inset-0 pointer-events-none"></div>
+
+      <div
+        class="relative z-10 max-w-4xl px-10 mt-60 ml-0 flex flex-col items-center justify-center"
+      >
+        <h1 class="text-7xl font-bold">
+          <span
+            class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 via-violet-500 to-pink-500"
+            >Hi, I'm Shuvam Kandel.</span
+          >
+        </h1>
+        <div class="text-3xl text-white-300 mt-8 font-semibold flex gap-2">
+          <p>I love to</p>
+          <p class="">build,</p>
+          <p class="">write,</p>
+          <p class="">learn.</p>
+        </div>
+        <div class="items-center flex gap-6 mt-8">
+          <a
+            href="/public/resume.pdf"
+            target="_blank"
+            class="hover:text-white text-lg py-2 px-4 rounded-lg border border-white/20 hover:border-white/40 hover:bg-white/10 transition text-[#BF40BF] font-medium"
+          >
+            Resume
+          </a>
+
+          <a
+            href="/blog.html"
+            target="_blank"
+            class="text-lg py-2 px-4 rounded-lg border border-white/20 hover:border-white/40 hover:bg-white/10 transition text-[#BF40BF] hover:text-white font-medium"
+          >
+            Read Blog
+          </a>
+        </div>
+        <div class="flex gap-5 mt-12">
+          <div class="group relative flex flex-col items-center">
+            <div
+              class="absolute -top-10 opacity-0 -rotate-12 translate-y-5 group-hover:opacity-100 group-hover:rotate-0 group-hover:translate-y-0 transition-all duration-300 ease-[cubic-bezier(.42,0,.44,1.68)] pointer-events-none"
+            >
+              <div
+                class="bg-[#ff0000] text-white text-sm py-1 px-4 rounded-full shadow-lg"
+              >
+                YouTube
+              </div>
+              <div
+                class="w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[8px] border-t-[#ff0000] mx-auto"
+              ></div>
+            </div>
+            <a
+              href="https://www.youtube.com/@SPARCRoboticsClub"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-md transition-all duration-300 group-hover:bg-[#ff0000] group-hover:fill-white fill-black"
+            >
+              <svg
+                class="w-8 h-8"
+                role="img"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"
+                />
+              </svg>
+            </a>
+          </div>
+
+          <div class="group relative flex flex-col items-center">
+            <div
+              class="absolute -top-10 opacity-0 -rotate-12 translate-y-5 group-hover:opacity-100 group-hover:rotate-0 group-hover:translate-y-0 transition-all duration-300 ease-[cubic-bezier(.42,0,.44,1.68)] pointer-events-none"
+            >
+              <div
+                class="bg-[#fe107c] text-white text-sm py-1 px-4 rounded-full shadow-lg"
+              >
+                Instagram
+              </div>
+              <div
+                class="w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[8px] border-t-[#fe107c] mx-auto"
+              ></div>
+            </div>
+            <a
+              href="https://www.instagram.com/shuvam_kandel/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-md transition-all duration-300 group-hover:bg-[#fe107c] group-hover:fill-white fill-black"
+            >
+              <svg
+                class="w-8 h-8"
+                role="img"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"
+                />
+              </svg>
+            </a>
+          </div>
+
+          <div class="group relative flex flex-col items-center">
+            <div
+              class="absolute -top-10 opacity-0 -rotate-12 translate-y-5 group-hover:opacity-100 group-hover:rotate-0 group-hover:translate-y-0 transition-all duration-300 ease-[cubic-bezier(.42,0,.44,1.68)] pointer-events-none"
+            >
+              <div
+                class="bg-[#181717] text-white text-sm py-1 px-4 rounded-full shadow-lg"
+              >
+                GitHub
+              </div>
+              <div
+                class="w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[8px] border-t-[#181717] mx-auto"
+              ></div>
+            </div>
+            <a
+              href="https://github.com/ShuvamKandel"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-md transition-all duration-300 group-hover:bg-[#181717] group-hover:fill-white fill-black"
+            >
+              <svg
+                class="w-8 h-8"
+                role="img"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 .297c-6.63 0-12 5.373-12 12 
+        0 5.303 3.438 9.8 8.205 11.385
+        .6.113.82-.258.82-.577
+        0-.285-.01-1.04-.015-2.04
+        -3.338.724-4.042-1.61-4.042-1.61
+        -.546-1.387-1.333-1.757-1.333-1.757
+        -1.089-.745.084-.729.084-.729
+        1.205.084 1.838 1.236 1.838 1.236
+        1.07 1.835 2.809 1.305 3.495.998
+        .108-.776.417-1.305.76-1.605
+        -2.665-.3-5.466-1.332-5.466-5.93
+        0-1.31.469-2.381 1.236-3.221
+        -.123-.303-.535-1.523.117-3.176
+        0 0 1.008-.322 3.301 1.23
+        .957-.266 1.983-.399 3.003-.404
+        1.02.005 2.047.138 3.006.404
+        2.291-1.552 3.297-1.23 3.297-1.23
+        .653 1.653.241 2.873.118 3.176
+        .77.84 1.235 1.911 1.235 3.221
+        0 4.61-2.805 5.625-5.475 5.92
+        .43.372.823 1.102.823 2.222
+        0 1.606-.015 2.896-.015 3.286
+        0 .321.216.694.825.576
+        C20.565 22.092 24 17.592 24 12.297
+        c0-6.627-5.373-12-12-12z"
+                />
+              </svg>
+            </a>
+          </div>
+
+          <div class="group relative flex flex-col items-center">
+            <div
+              class="absolute -top-10 opacity-0 -rotate-12 translate-y-5 group-hover:opacity-100 group-hover:rotate-0 group-hover:translate-y-0 transition-all duration-300 ease-[cubic-bezier(.42,0,.44,1.68)] pointer-events-none"
+            >
+              <div
+                class="bg-[#106bff] text-white text-sm py-1 px-4 rounded-full shadow-lg"
+              >
+                Facebook
+              </div>
+              <div
+                class="w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[8px] border-t-[#106bff] mx-auto"
+              ></div>
+            </div>
+            <a
+              href="https://www.facebook.com/shuvam.kandel.1/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-md transition-all duration-300 group-hover:bg-[#106bff] group-hover:fill-white fill-black"
+            >
+              <svg
+                class="w-8 h-8"
+                role="img"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- About Section -->
+    <section
+      id="about"
+      class="relative scroll-mt-12 mt-12 flex flex-col justify-center items-center px-6 overflow-hidden"
+    >
+      <div
+        class="absolute inset-0 -z-10 overflow-hidden pointer-events-none"
+        aria-hidden="true"
+      >
+        <!-- TOP LEFT -->
+        <div
+          class="absolute top-16 left-0 w-72 h-72 bg-primary/20 rounded-full blur-3xl animate-pulse-glow"
+        ></div>
+
+        <!-- CENTER CENTER -->
+        <div
+          class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-secondary/20 rounded-full blur-3xl animate-pulse-glow"
+          style="animation-delay: 1s"
+        ></div>
+
+        <!-- BOTTOM RIGHT -->
+        <div
+          class="absolute bottom-16 right-0 w-64 h-64 bg-accent/15 rounded-full blur-3xl animate-pulse-glow"
+          style="animation-delay: 0.5s"
+        ></div>
+      </div>
+
+      <!-- Foreground content -->
+      <div class="relative z-10 flex flex-col items-center">
+        <div class="max-w-3xl text-center">
+          <h2 class="text-4xl font-semibold mb-6">
+            <span class="text-white bg-clip-text">About Me</span>
+          </h2>
+        </div>
+        <div class="max-w-5xl mx-auto p-4">
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-4 auto-rows-[180px]">
+            <div
+              class="md:col-span-2 md:row-span-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-8 flex flex-col justify-between text-white shadow-2xl group hover:bg-white/15 transition-all"
+            >
+              <div class="w-full">
+                <div class="text-purple-400 text-3xl font-bold mb-6">01</div>
+
+                <div class="grid grid-cols-2 gap-4">
+                  <img
+                    src="/portfolio/photo1.png"
+                    alt="Project Screenshot 1"
+                    class="w-full h-32 object-cover rounded-2xl border border-white/10 group-hover:scale-[1.02] transition-transform"
+                  />
+                  <img
+                    src="/portfolio/photo2.png"
+                    alt="Project Screenshot 2"
+                    class="w-full h-32 object-cover rounded-2xl border border-white/10 group-hover:scale-[1.02] transition-transform"
+                  />
+                </div>
+              </div>
+
+              <div class="mt-8">
+                <h3 class="text-2xl font-bold tracking-tight">
+                  Project Highlight: The Palm Pilot
+                </h3>
+                <p class="text-slate-400 mt-2">
+                  A device aimed at helping differently abled people better
+                  adapt to technology.
+                </p>
+              </div>
+            </div>
+            <div
+              class="items-center justify-center md:col-span-2 bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl p-6 flex flex-col justify-center overflow-hidden group hover:border-purple-500/50 transition-all relative"
+            >
+              <div class="mb-8">
+                <h4 class="text-lg font-semibold text-white">
+                  My Technical Stack
+                </h4>
+              </div>
+
+              <div
+                class="relative flex overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_10%,white_90%,transparent)]"
+              >
+                <div class="flex animate-loop-scroll items-center gap-12 pr-12">
+                  <div class="flex items-center gap-2 text-slate-300">
+                    <svg class="w-6 h-6 fill-[#06B6D4]" viewBox="0 0 24 24">
+                      <path
+                        d="M12.001 4.8c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624C13.666 10.618 15.027 12 18.001 12c3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C16.337 6.182 14.976 4.8 12.001 4.8zm-6 7.2c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624 1.177 1.194 2.538 2.576 5.512 2.576 3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C10.337 13.382 8.976 12 6.001 12z"
+                      />
+                    </svg>
+                    <span class="font-medium">Tailwind</span>
+                  </div>
+                  <div class="flex items-center gap-2 text-slate-300">
+                    <svg class="w-6 h-6 fill-white" viewBox="0 0 24 24">
+                      <path
+                        d="M12 2L1 21h22L12 2zm0 3.45l8.1 14.05H3.9L12 5.45z"
+                      />
+                    </svg>
+                    <span class="font-medium">Three.js</span>
+                  </div>
+                  <div class="flex items-center gap-2 text-slate-300">
+                    <svg class="w-6 h-6 fill-[#00979D]" viewBox="0 0 24 24">
+                      <path
+                        d="M17.062 8.52c-2.31 0-4.28 1.51-4.96 3.61-.1.3-.1.61-.1.91 0 .31 0 .61.1.92.68 2.1 2.65 3.6 4.96 3.6 2.87 0 5.2-2.33 5.2-5.2s-2.33-5.2-5.2-5.2zm2.93 5.86h-1.46v1.47h-1.47v-1.47h-1.46v-1.47h1.46v-1.47h1.47v1.46h1.46v1.47zM6.938 8.52c-2.87 0-5.2 2.33-5.2 5.2s2.33 5.2 5.2 5.2c2.31 0 4.28-1.51 4.96-3.61.1-.3.1-.61.1-.92s0-.61-.1-.91c-.68-2.1-2.65-3.61-4.96-3.61zm1.46 5.86h-2.93v-1.47h2.93v1.47z"
+                      />
+                    </svg>
+                    <span class="font-medium">Arduino</span>
+                  </div>
+                  <div class="flex items-center gap-2 text-slate-300">
+                    <svg class="w-6 h-6 fill-[#3776AB]" viewBox="0 0 24 24">
+                      <path
+                        d="M14.25.3c-2.65 0-2.93.11-3.97.26-.85.12-1.4.34-1.9.55-.5.2-.9.46-1.3.87s-.67.8-.87 1.3c-.22.5-.42 1.05-.55 1.9-.15 1.04-.26 1.32-.26 3.97v1.45h2.17V9.4s.05-1.96.25-2.62c.2-.67.6-1.12 1.17-1.32.67-.2 2.62-.25 2.62-.25s1.96.05 2.62.25c.67.2 1.12.6 1.32 1.17.2.67.25 2.62.25 2.62v2.17h2.17V9.4c0-2.65-.11-2.93-.26-3.97-.12-.85-.34-1.4-.55-1.9-.2-.5-.46-.9-.87-1.3s-.8-.67-1.3-.87c-.5-.22-1.05-.42-1.9-.55-1.04-.15-1.32-.26-3.97-.26z"
+                      />
+                    </svg>
+                    <span class="font-medium">Python</span>
+                  </div>
+                  <div class="flex items-center gap-2 text-slate-300">
+                    <span class="font-bold text-white tracking-tighter italic"
+                      >CAD</span
+                    >
+                  </div>
+                  <div class="flex items-center gap-2 text-slate-300">
+                    <svg
+                      class="w-6 h-6 stroke-purple-400"
+                      fill="none"
+                      stroke-width="2"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M12 8V4H8"></path>
+                      <rect width="16" height="12" x="4" y="8" rx="2"></rect>
+                      <path d="M2 14h2M20 14h2M15 13v2M9 13v2" />
+                    </svg>
+                    <span class="font-medium">Robotics</span>
+                  </div>
+                </div>
+
+                <div
+                  class="flex animate-loop-scroll items-center gap-12 pr-12"
+                  aria-hidden="true"
+                >
+                  <div class="flex items-center gap-2 text-slate-300">
+                    <svg class="w-6 h-6 fill-[#06B6D4]" viewBox="0 0 24 24">
+                      <path
+                        d="M12.001 4.8c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624C13.666 10.618 15.027 12 18.001 12c3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C16.337 6.182 14.976 4.8 12.001 4.8zm-6 7.2c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624 1.177 1.194 2.538 2.576 5.512 2.576 3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C10.337 13.382 8.976 12 6.001 12z"
+                      />
+                    </svg>
+                    <span class="font-medium">Tailwind</span>
+                  </div>
+                  <div class="flex items-center gap-2 text-slate-300">
+                    <svg class="w-6 h-6 fill-white" viewBox="0 0 24 24">
+                      <path
+                        d="M12 2L1 21h22L12 2zm0 3.45l8.1 14.05H3.9L12 5.45z"
+                      />
+                    </svg>
+                    <span class="font-medium">Three.js</span>
+                  </div>
+                  <div class="flex items-center gap-2 text-slate-300">
+                    <svg class="w-6 h-6 fill-[#00979D]" viewBox="0 0 24 24">
+                      <path
+                        d="M17.062 8.52c-2.31 0-4.28 1.51-4.96 3.61-.1.3-.1.61-.1.91 0 .31 0 .61.1.92.68 2.1 2.65 3.6 4.96 3.6 2.87 0 5.2-2.33 5.2-5.2s-2.33-5.2-5.2-5.2zm2.93 5.86h-1.46v1.47h-1.47v-1.47h-1.46v-1.47h1.46v-1.47h1.47v1.46h1.46v1.47zM6.938 8.52c-2.87 0-5.2 2.33-5.2 5.2s2.33 5.2 5.2 5.2c2.31 0 4.28-1.51 4.96-3.61.1-.3.1-.61.1-.92s0-.61-.1-.91c-.68-2.1-2.65-3.61-4.96-3.61zm1.46 5.86h-2.93v-1.47h2.93v1.47z"
+                      />
+                    </svg>
+                    <span class="font-medium">Arduino</span>
+                  </div>
+                  <div class="flex items-center gap-2 text-slate-300">
+                    <svg class="w-6 h-6 fill-[#3776AB]" viewBox="0 0 24 24">
+                      <path
+                        d="M14.25.3c-2.65 0-2.93.11-3.97.26-.85.12-1.4.34-1.9.55-.5.2-.9.46-1.3.87s-.67.8-.87 1.3c-.22.5-.42 1.05-.55 1.9-.15 1.04-.26 1.32-.26 3.97v1.45h2.17V9.4s.05-1.96.25-2.62c.2-.67.6-1.12 1.17-1.32.67-.2 2.62-.25 2.62-.25s1.96.05 2.62.25c.67.2 1.12.6 1.32 1.17.2.67.25 2.62.25 2.62v2.17h2.17V9.4c0-2.65-.11-2.93-.26-3.97-.12-.85-.34-1.4-.55-1.9-.2-.5-.46-.9-.87-1.3s-.8-.67-1.3-.87c-.5-.22-1.05-.42-1.9-.55-1.04-.15-1.32-.26-3.97-.26z"
+                      />
+                    </svg>
+                    <span class="font-medium">Python</span>
+                  </div>
+                  <div class="flex items-center gap-2 text-slate-300">
+                    <span class="font-bold text-white tracking-tighter italic"
+                      >CAD</span
+                    >
+                  </div>
+                  <div class="flex items-center gap-2 text-slate-300">
+                    <svg
+                      class="w-6 h-6 stroke-purple-400"
+                      fill="none"
+                      stroke-width="2"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M12 8V4H8"></path>
+                      <rect width="16" height="12" x="4" y="8" rx="2"></rect>
+                      <path d="M2 14h2M20 14h2M15 13v2M9 13v2" />
+                    </svg>
+                    <span class="font-medium">Robotics</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="md:col-span-2 bg-gradient-to-br from-slate-800 to-slate-900 border border-white/10 rounded-3xl p-6 flex flex-col justify-center relative overflow-hidden group"
+            >
+              <div
+                class="absolute -right-10 -top-10 w-32 h-32 bg-purple-600/20 blur-3xl group-hover:bg-purple-600/40 transition-all"
+              ></div>
+
+              <div class="flex items-center gap-4">
+                <span class="text-5xl font-black text-white">25+</span>
+                <div>
+                  <h4 class="text-white font-bold leading-none">
+                    Projects Completed
+                  </h4>
+                  <p class="text-slate-400 text-sm mt-1">
+                    Open source contributions and personal experiments.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="md:col-span-3 bg-purple-600 rounded-3xl p-6 text-white flex items-center justify-between shadow-lg shadow-purple-500/20 group relative overflow-hidden"
+            >
+              <div class="z-10">
+                <div class="flex items-center gap-3 mb-1">
+                  <h3 class="text-xl font-bold">Available for freelance</h3>
+                  <div
+                    class="h-2 w-2 bg-green-400 mt-1 ml-1 rounded-full animate-pulse shadow-[0_0_10px_rgba(74,222,128,0.8)]"
+                  ></div>
+                </div>
+                <p class="text-purple-200 text-md font-light">
+                  Let's build something out of this world.
+                </p>
+              </div>
+
+              <div class="relative w-24 h-24 animate-bounce-slow mr-20 mt-4">
+                <svg
+                  viewBox="0 0 200 200"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-full h-full drop-shadow-xl"
+                >
+                  <path
+                    d="M160,150 Q180,120 160,90"
+                    stroke="white"
+                    stroke-width="8"
+                    fill="none"
+                    stroke-linecap="round"
+                    class="animate-tail"
+                  />
+                  <circle cx="100" cy="110" r="60" fill="white" />
+                  <polygon points="60,70 80,40 100,75" fill="white" />
+                  <polygon points="140,70 120,40 100,75" fill="white" />
+                  <circle
+                    cx="80"
+                    cy="100"
+                    r="6"
+                    fill="#581c87"
+                    class="animate-blink"
+                  />
+                  <circle
+                    cx="120"
+                    cy="100"
+                    r="6"
+                    fill="#581c87"
+                    class="animate-blink"
+                  />
+                  <path
+                    d="M95,120 Q100,125 105,120"
+                    stroke="#581c87"
+                    stroke-width="3"
+                    fill="none"
+                  />
+                </svg>
+
+                <div
+                  class="absolute top-0 right-0 animate-ping h-2 w-2 bg-white rounded-full opacity-50"
+                ></div>
+              </div>
+            </div>
+
+            <a
+              href="mailto:shuvamkandel007@gmail.com"
+              class="bg-white hover:bg-slate-100 rounded-3xl flex items-center justify-center transition-transform active:scale-95 shadow-xl"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-8 h-8 text-slate-900"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                  d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section
+      id="journey"
+      class="relative scroll-mt-12 mt-24 flex flex-col items-center px-6 py-24"
+    >
+      <!-- Background glow -->
+      <div
+        class="absolute inset-0 -z-10 overflow-hidden pointer-events-none"
+        aria-hidden="true"
+      >
+        <div
+          class="absolute top-16 left-1/4 w-72 h-72 bg-purple-500/20 blur-3xl rounded-full animate-pulse-glow"
+        ></div>
+        <div
+          class="absolute bottom-16 right-1/4 w-80 h-80 bg-cyan-500/15 blur-3xl rounded-full animate-pulse-glow"
+          style="animation-delay: 1s"
+        ></div>
+      </div>
+
+      <!-- Header -->
+      <div class="max-w-3xl text-center mb-16">
+        <h2 class="text-4xl font-semibold mb-4">
+          <span class="text-white"> My Journey </span>
+        </h2>
+        <p class="text-slate-400">
+          A timeline of learning, movement, and becoming — still unfolding.
+        </p>
+      </div>
+
+      <!-- Timeline -->
+      <div class="relative max-w-4xl w-full">
+        <!-- Vertical line -->
+        <div
+          class="absolute left-1/2 -translate-x-1/2 h-full w-[2px] bg-gradient-to-b from-transparent via-white/20 to-transparent"
+        ></div>
+
+        <!-- Item -->
+        <div class="relative mb-16 flex items-center">
+          <div class="w-1/2 pr-10 text-right">
+            <h3 class="text-xl font-bold text-white">Birth</h3>
+            <p class="text-slate-400 mt-1">
+              Born on 23 July 2007 — the beginning of the timeline.
+            </p>
+          </div>
+          <div
+            class="w-4 h-4 rounded-full bg-purple-500 shadow-[0_0_20px_rgba(168,85,247,0.8)]"
+          ></div>
+          <div class="w-1/2"></div>
+        </div>
+
+        <!-- Item -->
+        <div class="relative mb-16 flex items-center">
+          <div class="w-1/2"></div>
+          <div
+            class="w-4 h-4 rounded-full bg-cyan-400 shadow-[0_0_20px_rgba(34,211,238,0.8)]"
+          ></div>
+          <div class="w-1/2 pl-10">
+            <h3 class="text-xl font-bold text-white">
+              Triyog High School — Dhapasi
+            </h3>
+            <p class="text-slate-400 mt-1">
+              Studied for 10 years (Grade 1–10), building foundations in
+              learning and curiosity.
+            </p>
+            <p class="text-slate-500 text-sm mt-2">2003 – 2023</p>
+          </div>
+        </div>
+
+        <!-- Item -->
+        <div class="relative mb-16 flex items-center">
+          <div class="w-1/2 pr-10 text-right">
+            <h3 class="text-xl font-bold text-white">SEE Examination</h3>
+            <p class="text-slate-400 mt-1">
+              Completed the Secondary Education Examination.
+            </p>
+            <p class="text-slate-500 text-sm mt-2">2023</p>
+          </div>
+          <div
+            class="w-4 h-4 rounded-full bg-pink-400 shadow-[0_0_20px_rgba(244,114,182,0.8)]"
+          ></div>
+          <div class="w-1/2"></div>
+        </div>
+
+        <!-- Item -->
+        <div class="relative mb-16 flex items-center">
+          <div class="w-1/2"></div>
+          <div
+            class="w-4 h-4 rounded-full bg-purple-400 shadow-[0_0_20px_rgba(192,132,252,0.8)]"
+          ></div>
+          <div class="w-1/2 pl-10">
+            <h3 class="text-xl font-bold text-white">
+              St. Xavier’s College, Maitighar
+            </h3>
+            <p class="text-slate-400 mt-1">
+              Joined for International A Levels, expanding academic depth and
+              global perspective.
+            </p>
+            <p class="text-slate-500 text-sm mt-2">2023 – 2025</p>
+          </div>
+        </div>
+
+        <!-- Item -->
+        <div class="relative mb-16 flex items-center">
+          <div class="w-1/2 pr-10 text-right">
+            <h3 class="text-xl font-bold text-white">A Levels Boards</h3>
+            <p class="text-slate-400 mt-1">Completed A Levels examinations.</p>
+            <p class="text-slate-500 text-sm mt-2">2025</p>
+          </div>
+          <div
+            class="w-4 h-4 rounded-full bg-cyan-300 shadow-[0_0_20px_rgba(103,232,249,0.8)]"
+          ></div>
+          <div class="w-1/2"></div>
+        </div>
+
+        <!-- Final -->
+        <div class="relative flex items-center">
+          <div class="w-1/2"></div>
+          <div
+            class="w-5 h-5 rounded-full bg-green-400 shadow-[0_0_30px_rgba(74,222,128,0.9)] animate-pulse"
+          ></div>
+          <div class="w-1/2 pl-10">
+            <h3 class="text-2xl font-bold text-white">Now</h3>
+            <p class="text-slate-300 mt-1">
+              An explorer — learning, building, and navigating what comes next.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section
+      id="contact"
+      class="relative scroll-mt-12 flex flex-col justify-center items-center overflow-hidden"
+    >
+      <div
+        class="absolute inset-0 -z-10 overflow-hidden pointer-events-none"
+        aria-hidden="true"
+      >
+        <!-- TOP LEFT -->
+        <div
+          class="absolute top-12 left-0 w-72 h-72 bg-primary/20 rounded-full blur-3xl animate-pulse-glow"
+        ></div>
+
+        <!-- CENTER CENTER -->
+        <div
+          class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-secondary/20 rounded-full blur-3xl animate-pulse-glow"
+          style="animation-delay: 1s"
+        ></div>
+
+        <!-- BOTTOM RIGHT -->
+        <div
+          class="absolute bottom-0 right-0 w-64 h-64 bg-accent/15 rounded-full blur-3xl animate-pulse-glow"
+          style="animation-delay: 0.5s"
+        ></div>
+      </div>
+      <!-- Foreground content -->
+      <div
+        class="relative z-10 flex flex-col items-center w-full max-w-4xl px-6 py-20"
+      >
+        <!-- Heading -->
+        <h2 class="text-4xl font-semibold mb-4">
+          <span class="text-white"> Contact Me </span>
+        </h2>
+
+        <p class="text-slate-400 text-center max-w-xl mb-10">
+          Have a project in mind, a question, or just want to say hello? Drop a
+          message and I’ll get back to you.
+        </p>
+
+        <!-- Contact card -->
+        <div
+          class="w-full bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl p-8 shadow-2xl"
+        >
+          <form class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Name -->
+            <div>
+              <label class="block text-sm text-slate-300 mb-1">Name</label>
+              <input
+                type="text"
+                placeholder="Your name"
+                class="w-full rounded-xl bg-white/10 border border-white/20 px-4 py-3 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-purple-500"
+              />
+            </div>
+
+            <!-- Email -->
+            <div>
+              <label class="block text-sm text-slate-300 mb-1">Email</label>
+              <input
+                type="email"
+                placeholder="you@example.com"
+                class="w-full rounded-xl bg-white/10 border border-white/20 px-4 py-3 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-purple-500"
+              />
+            </div>
+
+            <!-- Message -->
+            <div class="md:col-span-2">
+              <label class="block text-sm text-slate-300 mb-1">Message</label>
+              <textarea
+                rows="5"
+                placeholder="Tell me about your idea..."
+                class="w-full rounded-xl bg-white/10 border border-white/20 px-4 py-3 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-purple-500"
+              ></textarea>
+            </div>
+
+            <!-- Submit -->
+            <div
+              class="md:col-span-2 flex flex-col md:flex-row items-center justify-between gap-4"
+            >
+              <p class="text-slate-400 text-sm">
+                Or call:
+                <span class="text-white font-medium">+977 9845485578</span>
+              </p>
+
+              <button
+                type="submit"
+                class="px-8 py-3 rounded-xl bg-purple-600 hover:bg-purple-700 transition-all text-white font-semibold shadow-lg shadow-purple-500/30"
+              >
+                Send Message
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Footer -->
+        <div class="mt-14 flex flex-col items-center gap-6">
+          <!-- Socials -->
+          <div class="flex items-center gap-6 text-slate-400">
+            <a
+              href="https://www.instagram.com/shuvam_kandel/"
+              class="hover:text-white transition"
+              target="_blank"
+              >Instagram</a
+            >
+            <a
+              href="https://www.facebook.com/shuvam.kandel.1/"
+              class="hover:text-white transition"
+              target="_blank"
+              >Facebook</a
+            >
+            <a
+              href="https://www.youtube.com/@SPARCRoboticsClub"
+              class="hover:text-white transition"
+              target="_blank"
+              >YouTube</a
+            >
+            <a
+              href="https://github.com/ShuvamKandel"
+              class="hover:text-white transition"
+              target="_blank"
+              >GitHub</a
+            >
+          </div>
+
+          <!-- Made by -->
+          <p class="text-slate-500 text-sm">
+            Made by me with
+            <span class="text-red-500 mx-1">♥</span>
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </body>
+</html>
