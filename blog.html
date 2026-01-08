@@ -118,14 +118,16 @@
         <!--LOG 2-->
         <article
           class="article-card cursor-pointer rounded-xl border border-white/10 bg-white/5 p-6 backdrop-blur hover:border-indigo-400/40 hover:bg-white/10 transition"
-          data-title="The Palm Pilot"
+          data-title="Project: The Palm Pilot"
           data-log="Log 02"
           data-source="#article-palmpilot"
         >
           <span class="text-xs uppercase tracking-widest text-indigo-400">
             Log 02
           </span>
-          <h3 class="mt-3 text-xl font-semibold text-white">The Palm Pilot</h3>
+          <h3 class="mt-3 text-xl font-semibold text-white">
+            Project: The Palm Pilot
+          </h3>
           <p class="mt-3 text-sm text-gray-400">
             A wearable device for assisting disabled people in their daily
             tasks.
@@ -186,6 +188,55 @@
           <p class="mt-3 text-sm text-gray-400">
             Literature reflects emotion, offers hope, and helps people endure
             difficult realities.
+          </p>
+        </article>
+
+        <!--LOG 6-->
+        <article
+          class="article-card cursor-pointer rounded-xl border border-white/10 bg-white/5 p-6 backdrop-blur hover:border-indigo-400/40 hover:bg-white/10 transition"
+          data-title="Project: Districts of Nepal"
+          data-log="Log 06"
+          data-source="#districtsGame"
+        >
+          <span class="text-xs uppercase tracking-widest text-indigo-400">
+            Log 06
+          </span>
+
+          <h3 class="text-xl font-semibold text-white italic">
+            Project: Districts of Nepal
+          </h3>
+
+          <div class="mt-3 flex items-left">
+            <p class="mt-3 text-sm text-gray-400">
+              A learning tool that challenges users to name all 77 districts of
+              Nepal.
+            </p>
+            <a
+              href="https://shuvamkandel.github.io/DistrictsOfNepal/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="mt-3 text-sm text-gray-400 underline underline-offset-4 hover:text-indigo-400 transition-colors duration-200"
+            >
+              Visit Here
+            </a>
+          </div>
+        </article>
+
+        <!--LOG 7-->
+        <article
+          class="article-card cursor-pointer rounded-xl border border-white/10 bg-white/5 p-6 backdrop-blur hover:border-indigo-400/40 hover:bg-white/10 transition"
+          data-title="The Roman Empire"
+          data-log="Log 07"
+          data-source="#romanEmpire"
+        >
+          <span class="text-xs uppercase tracking-widest text-indigo-400">
+            Log 07
+          </span>
+          <h3 class="mt-3 text-xl font-semibold text-white">
+            The Roman Empire
+          </h3>
+          <p class="mt-3 text-sm text-gray-400">
+            My thoughts on the Roman Empire.
           </p>
         </article>
       </div>
@@ -423,6 +474,14 @@
         src="/portfolio/photo1.png"
         class="max-w-xs rounded-xl my-6 border border-white/10 mx-auto"
       />
+      <a
+        href="https://github.com/ShuvamKandel/ThePalmPilot"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="block text-center text-white-900 font-bold italic text-xl my-8 underline underline-offset-4 hover:text-indigo-400 transition-colors duration-200"
+      >
+        Visit Here
+      </a>
       <p class="font-semibold text-indigo-400">Introduction</p>
 
       <p>
@@ -899,6 +958,90 @@
         stories; it becomes a way for people to feel
         <strong>understood</strong> and <strong>less alone</strong>.
       </p>
+    </div>
+
+    <!--Districts game article-->
+    <div id="districtsGame" class="hidden">
+      <p class="mt-6 font-semibold text-indigo-400">By Shuvam Kandel</p>
+
+      <img
+        src="/portfolio/photo6.png"
+        class="w-full rounded-xl my-6 border border-white/10 mx-auto"
+      />
+      <a
+        href="https://shuvamkandel.github.io/DistrictsOfNepal/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="block text-center text-white-900 font-bold italic text-xl my-8 underline underline-offset-4 hover:text-indigo-400 transition-colors duration-200"
+      >
+        Visit Here
+      </a>
+
+      <p>
+        <strong><em>Districts of Nepal</em></strong> is a web-based project that
+        I built using React.js. It focuses on presenting Nepal’s districts in an
+        interactive way and encouraging people to learn more about my nation.
+      </p>
+
+      <p>
+        The goal of this project was to share knowledge about Nepal’s geography
+        in a <strong>fun and engaging</strong> way by actively challenging
+        users.
+      </p>
+
+      <p>
+        The website helps users become familiar with the
+        <strong>77 district names</strong> and their organization within the
+        country’s federal structure. By leveraging React’s component-based
+        architecture, the project efficiently manages state and dynamic
+        rendering, ensuring smooth interaction and a responsive user experience.
+      </p>
+
+      <p>
+        A <strong>10-minute timer</strong> is displayed in the top-right corner
+        of the screen, and districts turn green after they are correctly named.
+        Users can try naming districts such as Kathmandu or Mustang to see the
+        interaction in action.
+      </p>
+
+      <p>
+        At the end of the 10 minutes, any districts left unnamed turn red, and
+        the screen displays the names of all districts that were named and
+        missed. Rather than overwhelming users with excessive information, the
+        project focuses on a <strong>simple naming game</strong>.
+      </p>
+
+      <p>
+        Building this site strengthened my understanding of React fundamentals
+        such as reusable components, state management, and dynamically rendering
+        structured data.
+      </p>
+
+      <p>
+        <em>Districts of Nepal</em> reflects my interest in using technology to
+        create tools that help people in meaningful ways and serves as a
+        foundation for future enhancements such as maps, quizzes, or deeper
+        administrative data visualization.
+      </p>
+
+      <img
+        src="/portfolio/photo7.png"
+        class="w-full rounded-xl my-6 border border-white/10 mx-auto"
+      />
+      <img
+        src="/portfolio/photo8.png"
+        class="w-full rounded-xl my-6 border border-white/10 mx-auto"
+      />
+    </div>
+
+    <!--Roman empire article-->
+    <div id="romanEmpire" class="hidden">
+      <p class="mt-6 font-semibold text-indigo-400">By Shuvam Kandel</p>
+
+      <img
+        src="/portfolio/photo3.jpg"
+        class="w-full rounded-xl my-6 border border-white/10 mx-auto"
+      />
     </div>
   </body>
 </html>
