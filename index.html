@@ -131,7 +131,7 @@
         animation-play-state: paused;
       }
     </style>
-    <script type="module" crossorigin src="/portfolio/assets/index--tNers91.js"></script>
+    <script type="module" crossorigin src="/portfolio/assets/index-DRwRW46W.js"></script>
     <link rel="modulepreload" crossorigin href="/portfolio/assets/three.module-CIUWMAcE.js">
   </head>
 
@@ -589,7 +589,7 @@
                     Projects Completed
                   </h4>
                   <p class="text-slate-400 text-sm mt-1">
-                    Open source contributions and personal experiments.
+                    Open source contributions and personal projects.
                   </p>
                 </div>
               </div>
@@ -702,7 +702,7 @@
           <span class="text-white"> My Journey </span>
         </h2>
         <p class="text-slate-400">
-          A timeline of learning, movement, and becoming — still unfolding.
+          A timeline of my life consisting of major events and achievements.
         </p>
       </div>
 
@@ -717,9 +717,7 @@
         <div class="relative mb-16 flex items-center">
           <div class="w-1/2 pr-10 text-right">
             <h3 class="text-xl font-bold text-white">Birth</h3>
-            <p class="text-slate-400 mt-1">
-              Born on 23 July 2007 — the beginning of the timeline.
-            </p>
+            <p class="text-slate-400 mt-1">Born on 23 July 2007.</p>
           </div>
           <div
             class="w-4 h-4 rounded-full bg-purple-500 shadow-[0_0_20px_rgba(168,85,247,0.8)]"
@@ -738,7 +736,7 @@
               Triyog High School — Dhapasi
             </h3>
             <p class="text-slate-400 mt-1">
-              Studied for 10 years (Grade 1–10), building foundations in
+              Studied for 10 years (Grade 1–10), building my foundation in
               learning and curiosity.
             </p>
             <p class="text-slate-500 text-sm mt-2">2003 – 2023</p>
@@ -771,8 +769,7 @@
               St. Xavier’s College, Maitighar
             </h3>
             <p class="text-slate-400 mt-1">
-              Joined for International A Levels, expanding academic depth and
-              global perspective.
+              Joined for International A Levels.
             </p>
             <p class="text-slate-500 text-sm mt-2">2023 – 2025</p>
           </div>
@@ -800,7 +797,8 @@
           <div class="w-1/2 pl-10">
             <h3 class="text-2xl font-bold text-white">Now</h3>
             <p class="text-slate-300 mt-1">
-              An explorer — learning, building, and navigating what comes next.
+              An explorer — learning, building, and doing things I never got the
+              time to do.
             </p>
           </div>
         </div>
@@ -816,49 +814,45 @@
         class="absolute inset-0 -z-10 overflow-hidden pointer-events-none"
         aria-hidden="true"
       >
-        <!-- TOP LEFT -->
+        <!-- Background blobs -->
         <div
           class="absolute top-12 left-0 w-72 h-72 bg-primary/20 rounded-full blur-3xl animate-pulse-glow"
         ></div>
-
-        <!-- CENTER CENTER -->
         <div
           class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-secondary/20 rounded-full blur-3xl animate-pulse-glow"
           style="animation-delay: 1s"
         ></div>
-
-        <!-- BOTTOM RIGHT -->
         <div
           class="absolute bottom-0 right-0 w-64 h-64 bg-accent/15 rounded-full blur-3xl animate-pulse-glow"
           style="animation-delay: 0.5s"
         ></div>
       </div>
-      <!-- Foreground content -->
+
       <div
         class="relative z-10 flex flex-col items-center w-full max-w-4xl px-6 py-20"
       >
-        <!-- Heading -->
-        <h2 class="text-4xl font-semibold mb-4">
-          <span class="text-white"> Contact Me </span>
+        <h2 class="text-4xl font-semibold mb-4 text-white text-center">
+          Contact Me
         </h2>
-
         <p class="text-slate-400 text-center max-w-xl mb-10">
           Have a project in mind, a question, or just want to say hello? Drop a
           message and I’ll get back to you.
         </p>
 
-        <!-- Contact card -->
+        <!-- Contact Card -->
         <div
           class="w-full bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl p-8 shadow-2xl"
         >
-          <form class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <form id="contactForm" class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <!-- Name -->
             <div>
               <label class="block text-sm text-slate-300 mb-1">Name</label>
               <input
                 type="text"
+                id="name"
                 placeholder="Your name"
                 class="w-full rounded-xl bg-white/10 border border-white/20 px-4 py-3 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                required
               />
             </div>
 
@@ -867,8 +861,10 @@
               <label class="block text-sm text-slate-300 mb-1">Email</label>
               <input
                 type="email"
+                id="email"
                 placeholder="you@example.com"
                 class="w-full rounded-xl bg-white/10 border border-white/20 px-4 py-3 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                required
               />
             </div>
 
@@ -876,9 +872,11 @@
             <div class="md:col-span-2">
               <label class="block text-sm text-slate-300 mb-1">Message</label>
               <textarea
+                id="message"
                 rows="5"
                 placeholder="Tell me about your idea..."
                 class="w-full rounded-xl bg-white/10 border border-white/20 px-4 py-3 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                required
               ></textarea>
             </div>
 
@@ -903,42 +901,39 @@
 
         <!-- Footer -->
         <div class="mt-14 flex flex-col items-center gap-6">
-          <!-- Socials -->
           <div class="flex items-center gap-6 text-slate-400">
             <a
               href="https://www.instagram.com/shuvam_kandel/"
-              class="hover:text-white transition"
               target="_blank"
+              class="hover:text-white transition"
               >Instagram</a
             >
             <a
               href="https://www.facebook.com/shuvam.kandel.1/"
-              class="hover:text-white transition"
               target="_blank"
+              class="hover:text-white transition"
               >Facebook</a
             >
             <a
               href="https://www.youtube.com/@SPARCRoboticsClub"
-              class="hover:text-white transition"
               target="_blank"
+              class="hover:text-white transition"
               >YouTube</a
             >
             <a
               href="https://github.com/ShuvamKandel"
-              class="hover:text-white transition"
               target="_blank"
+              class="hover:text-white transition"
               >GitHub</a
             >
           </div>
-
-          <!-- Made by -->
           <p class="text-slate-500 text-sm">
-            Made by me with
-            <span class="text-red-500 mx-1">♥</span>
+            Made by me with <span class="text-red-500 mx-1">♥</span>
           </p>
         </div>
       </div>
     </section>
+
 
   </body>
 </html>
