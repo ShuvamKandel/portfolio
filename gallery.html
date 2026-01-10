@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              background: "#000000",
+              card: "#121826",
+              primary: "#6366f1",
+              secondary: "#22d3ee",
+              accent: "#a78bfa",
+            },
+          },
+        },
+      };
+    </script>
+    <!-- NAVBAR -->
+    <nav
+      class="fixed top-0 left-0 w-full z-50 backdrop-blur-md border-b border-white/10 text-[#DECECA]"
+    >
+      <div class="max-w-7xl mx-auto px-6 py-2 flex justify-end items-center">
+        <ul class="flex gap-8 text-sm font-medium">
+          <li>
+            <a href="/portfolio/" class="hover:text-[#BF40BF] transition"
+              >Home</a
+            >
+          </li>
+          <li>
+            <a href="/portfolio/#about" class="hover:text-[#BF40BF] transition"
+              >About</a
+            >
+          </li>
+          <li>
+            <a
+              href="/portfolio/blog.html"
+              class="hover:text-[#BF40BF] transition"
+              >Blog</a
+            >
+          </li>
+          <li>
+            <a href="/portfolio/gallery.html" class="text-[#BF40BF]">
+              Gallery
+            </a>
+          </li>
+          <li>
+            <a
+              href="/portfolio/#contact"
+              class="hover:text-[#BF40BF] transition"
+            >
+              Contact
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <title>Shuvam Kandel - Gallery</title>
+  </head>
+
+  <body class="bg-background text-white overflow-x-hidden scroll-smooth">
+    <!-- Top-left glow (existing) -->
+    <div
+      class="absolute top-20 left-10 w-96 h-96 bg-primary/15 rounded-full blur-3xl animate-pulse-glow"
+    ></div>
+
+    <!-- Middle-right glow -->
+    <div
+      class="absolute top-1/2 right-10 w-96 h-96 bg-secondary/5 rounded-full blur-3xl animate-pulse-glow"
+    ></div>
+
+    <!-- Slightly above left bottom glow -->
+    <div
+      class="absolute top-[110%] left-20 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-pulse-glow"
+    ></div>
+
+    <!-- PAGE CONTENT -->
+    <main class="pt-20 max-w-4xl mx-auto px-6">
+      <!--header text-->
+      <div class="relative">
+        <h1 class="text-4xl font-semibold mb-6 text-center">Gallery</h1>
+        <p class="text-slate-300">
+          Here, you will find a small collection of photographs from events I've
+          attended, projects I've worked on, and moments I found worth
+          capturing. All images and work shown here are my own.
+        </p>
+      </div>
+      <section class="mt-8">
+        <div class="grid grid-cols-2 md:grid-cols-4 auto-rows-[180px] gap-4">
+          <!-- Orbit Expo -->
+          <div
+            class="relative group col-span-2 row-span-2 rounded-xl overflow-hidden"
+          >
+            <img
+              src="/portfolio/Gallery/orbit.jpg"
+              class="w-full h-full object-cover"
+              alt=""
+            />
+            <div
+              class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition flex items-center p-4"
+            >
+              <p class="text-s font-bold">
+                Winner at Orbit International Engineering Expo
+              </p>
+            </div>
+          </div>
+
+          <!-- SET Exhibition image -->
+          <div class="relative group rounded-xl overflow-hidden">
+            <img
+              src="/portfolio/Gallery/setexhibition.jpg"
+              class="w-full h-full object-cover"
+            />
+            <div
+              class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition flex items-end p-3"
+            >
+              <p class="text-s font-bold">Winner at SET Exhibition 2025</p>
+            </div>
+          </div>
+
+          <!-- line follower video -->
+          <div class="relative group rounded-xl overflow-hidden row-span-2">
+            <video
+              src="/portfolio/Gallery/linefollower.mp4"
+              muted
+              loop
+              autoplay
+              playsinline
+              class="w-full h-full object-cover"
+            ></video>
+            <div
+              class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition flex items-end p-4"
+            >
+              <p class="text-s font-bold">Line Following Car</p>
+            </div>
+          </div>
+          <!--Nepal flag video-->
+          <div class="relative group rounded-xl overflow-hidden row-span-2">
+            <video
+              src="/portfolio/Gallery/technoxianflag.mp4"
+              muted
+              loop
+              autoplay
+              playsinline
+              class="w-full h-full object-cover"
+            ></video>
+            <div
+              class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition flex items-end p-4"
+            >
+              <p class="text-s font-bold">
+                Representing Nepal at Technoxian World Robotics Championship in
+                India
+              </p>
+            </div>
+          </div>
+
+          <!-- Project demonstration WRC -->
+          <div
+            class="relative group col-span-2 row-span-1 rounded-xl overflow-hidden"
+          >
+            <img
+              src="/portfolio/Gallery/technoxian2024.png"
+              class="w-full h-full object-cover"
+            />
+            <div
+              class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition flex items-end p-3"
+            >
+              <p class="text-s font-bold">
+                My Project Demonstration stall in Noida, India
+              </p>
+            </div>
+          </div>
+          <!-- Diyo image -->
+          <div class="relative group col-span-1 rounded-xl overflow-hidden">
+            <img
+              src="/portfolio/Gallery/photography/diyo2.jpg"
+              class="w-full h-full object-cover"
+            />
+            <div
+              class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition flex items-end p-4"
+            >
+              <p class="text-s font-bold">
+                Clay lamps at Bouddhanath Stupa, Kathmandu
+              </p>
+            </div>
+          </div>
+
+          <!--Pulchowk stall-->
+          <div class="relative group col-span-2 rounded-xl overflow-hidden">
+            <img
+              src="/portfolio/Gallery/palmpilotstall.jpg"
+              class="w-full h-full object-cover"
+            />
+            <div
+              class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition flex items-end p-4"
+            >
+              <p class="text-s font-bold">
+                My Project Stall at Pulchwok Engineering Campus, Lalitpur, Nepal
+              </p>
+            </div>
+          </div>
+
+          <!--Run for Autism-->
+          <div class="relative group col-span-1 rounded-xl overflow-hidden">
+            <img
+              src="/portfolio/Gallery/communityrun1.jpg"
+              class="w-full h-full object-cover"
+            />
+            <div
+              class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition flex items-end p-4"
+            >
+              <p class="text-s font-bold">Participant at Run For Autism 2025</p>
+            </div>
+          </div>
+
+          <!--Rafting-->
+          <div
+            class="relative group col-span-1 row-span-2 rounded-xl overflow-hidden"
+          >
+            <img
+              src="/portfolio/Gallery/photography/rafting.jpg"
+              class="w-full h-full object-cover"
+            />
+            <div
+              class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition flex items-end p-4"
+            >
+              <p class="text-s font-bold">Rafting at Trishuli River, 2024</p>
+            </div>
+          </div>
+
+          <!--mazesolver-->
+          <div
+            class="relative group col-span-1 row-span-1 rounded-xl overflow-hidden"
+          >
+            <img
+              src="/portfolio/Gallery/mazesolver.jpg"
+              class="w-full h-full object-cover"
+            />
+            <div
+              class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition flex items-end p-4"
+            >
+              <p class="text-s font-bold">Part of a Maze Solving Robot</p>
+            </div>
+          </div>
+
+          <!--Run for Autism-->
+          <div
+            class="relative group col-span-2 row-span-2 rounded-xl overflow-hidden"
+          >
+            <img
+              src="/portfolio/Gallery/photography/lalitpur.jpg"
+              class="w-full h-full object-cover"
+            />
+            <div
+              class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition flex items-end p-4"
+            >
+              <p class="text-s font-bold">Pimbahal, Lalitpur, Nepal</p>
+            </div>
+          </div>
+
+          <!--motioncar-->
+          <div
+            class="relative group rounded-xl overflow-hidden row-span-1 col-span-1"
+          >
+            <video
+              src="/portfolio/Gallery/motioncarpalmpilot.MOV"
+              muted
+              loop
+              autoplay
+              playsinline
+              class="w-full h-full object-cover"
+            ></video>
+            <div
+              class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition flex items-end p-4"
+            >
+              <p class="text-s font-bold">A car controlled by hand guestures</p>
+            </div>
+          </div>
+
+          <!--Palm Pilot Version-->
+          <div
+            class="relative group col-span-1 row-span-1 rounded-xl overflow-hidden"
+          >
+            <img
+              src="/portfolio/Gallery/palmpilotVersion.jpg"
+              class="w-full h-full object-cover"
+            />
+            <div
+              class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition flex items-end p-4"
+            >
+              <p class="text-s font-bold">A Version of the Palm Pilot</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!--Footer-->
+    <div class="mt-14 mb-4 flex flex-col items-center gap-6">
+      <div class="flex items-center gap-6 text-slate-400">
+        <a
+          href="https://www.instagram.com/"
+          target="_blank"
+          class="hover:text-white transition"
+          >Instagram</a
+        >
+        <a
+          href="https://www.facebook.com/"
+          target="_blank"
+          class="hover:text-white transition"
+          >Facebook</a
+        >
+        <a
+          href="https://www.youtube.com/@SPARCRoboticsClub"
+          target="_blank"
+          class="hover:text-white transition"
+          >YouTube</a
+        >
+        <a
+          href="https://github.com/ShuvamKandel"
+          target="_blank"
+          class="hover:text-white transition"
+          >GitHub</a
+        >
+      </div>
+      <p class="text-slate-500 text-sm">
+        Made by me with <span class="text-red-500 mx-1">♥</span>
+      </p>
+    </div>
+  </body>
+</html>
